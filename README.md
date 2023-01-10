@@ -29,7 +29,6 @@ This repository holds the various frontend personal projects I've carried out Fe
 #### Links
 
 - Solution URL: [Solution Repo](https://www.github.com/michizler/Dicee_Challenge)
-- Live Site URL: [Live page](https://michizler.github.io/Dicee_Challenge/)
 
 
 ### Drum Kit
