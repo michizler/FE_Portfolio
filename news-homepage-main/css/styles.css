@@ -1,0 +1,158 @@
+body {
+    font-family: "Inter", sans-serif;
+    background-color: hsl(36, 100%, 99%);
+    padding: 0 12%;
+}
+
+p {
+    font-size: 15px;
+    color: hsl(236, 13%, 42%);
+}
+
+hr {
+    margin: 2rem 0;
+    border-top: 1px solid hsl(236, 13%, 42%);
+}
+
+/* Navigation */
+
+.nav-item {
+    padding: 0 0.6rem;
+}
+
+.nav-link {
+    color: hsl(236, 13%, 42%);
+}
+
+.nav-link:hover {
+    color: hsl(5, 85%, 63%);
+}
+
+#navigation {
+    padding: 4rem 0 3rem;
+}
+
+/* First Section */
+
+.left-column {
+    padding-right: 2.3%;
+}
+
+.page-pic {
+    width: 100%;
+}
+
+.lower-left-section {
+    float: left;
+}
+
+.big-heading, .left-column-text {
+    padding: 4% 2%;
+}
+
+.big-heading h1 {
+    font-weight: 800;
+    color: hsl(240, 100%, 5%);
+}
+
+.read_more-button {
+    padding-top: 2%;
+}
+
+.read_more-button button {
+    background-color: hsl(5, 85%, 63%);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+}
+
+.read_more-button button:hover {
+    background-color:hsl(240, 100%, 5%);
+}
+
+.recent-news {
+    background-color: hsl(240, 100%, 5%);
+    padding: 0 2%;
+    margin-bottom: 2%;
+}
+
+.recents-heading {
+    color: hsl(35, 77%, 62%);
+    padding: 1rem 0;
+    font-weight: 700;
+}
+
+.new-item-title {
+    color: hsl(233, 8%, 79%);
+    font-weight: 700;
+}
+
+.new-item-title:hover {
+    color:hsl(35, 77%, 62%);
+    text-decoration: none;
+}
+
+/* Second section */
+
+.item-pic {
+    padding: 0 0;
+}
+
+.text-div {
+    height: fit-content;
+}
+
+.list-container {
+    margin: 4% 0;
+}
+
+.list-number {
+    color: hsl(233, 8%, 79%);
+    padding-bottom: 2%;
+    font-weight: 700;
+}
+
+.list-heading {
+    color:hsl(240, 100%, 5%);
+    font-weight: 700;
+    padding: 1%;
+}
+
+.list-heading:hover {
+    color:hsl(5, 85%, 63%);
+    text-decoration: none;
+}
+
+@media (350px <= width <= 430px ) {
+    .item-pic {
+        height: 50%;
+        width: 50%;
+    }
+
+    .text-div {
+        height: 50%;
+        width: 50%;
+    }
+
+    .list-text {
+        font-size: 13px;
+    }
+
+    .credits {
+        font-size: xx-small;
+    }
+}
+
+/* Footer */
+
+.footer-credits {
+    background-color:hsl(240, 100%, 5%);
+    color:hsl(36, 100%, 99%);
+    text-align: center;  
+    margin: 5% 0;
+    padding: 3% 0;
+}
+
+.credits {
+    font-size: x-small;
+}

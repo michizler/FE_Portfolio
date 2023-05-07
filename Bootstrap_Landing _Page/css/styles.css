@@ -1,0 +1,174 @@
+body {
+    font-family: "Montserrat";
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+p {
+    color: #8f8f8f
+}
+
+/* Sections */
+
+.colored-section {
+    background-color: #ff4c68;
+    color: white;
+}
+
+.white-section {
+    background-color: white;
+}
+
+.container-fluid {
+    padding: 3% 15% 4%;
+}
+
+/* Navigation Bar */
+
+.brand-text {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.nav-item {
+    padding: 0 18px;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+}
+
+/* Title section */
+
+#title .container-fluid {
+    text-align: left;
+}
+
+.download-button {
+    margin: 5% 3% 0;
+}
+
+.iphone {
+    padding: 1rem 0 0 1.2rem;
+}
+
+#title_h1 {
+    font-size: 3.5rem;
+}
+
+#first_row {
+    padding: 5% 0;
+}
+
+#iphone6 {
+    transform: rotate(25deg);
+    width: 60%;
+    position: absolute;
+    right: 25%;
+}
+
+/* Features */
+
+#features {
+    position: relative;
+}
+
+.feature-box {
+    padding: 0 1.8rem 2.5rem;
+}
+
+.feature-icon {
+    color: #fc757c;
+    font-size: 3rem;
+    padding: 3.8rem 0 2rem;
+    width: 70%;
+}
+
+.feature-icon:hover {
+    color: #ff4c68;
+}
+
+
+/* Testimonials */
+
+#testimonials {
+    
+    background-color: #fc757c;
+}
+
+.carousel-item {
+    padding: 7% 15%;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+.testimonial-image {
+    border-radius: 100%;
+    width: 12%;
+    padding: 20px;
+}
+
+#press {
+    background-color: #fc757c;
+    padding-bottom: 1.5%;
+}
+
+.press-logo {
+    width: 16%;
+    margin: 20px 20px 50px;
+}
+
+/* Pricing */
+
+#pricing {
+    padding: 100px;
+}
+
+.pricing-column {
+    padding: 3% 2%;
+}
+
+@media (max-width: 1028px) {
+    #title {
+        text-align: center;
+    }
+
+    #iphone6 {
+        transform: rotate(0);
+        position: static;
+        padding-top: 2rem;
+    }
+}
+
+/* Call to Action */
+
+#cta {
+    padding: 8rem;
+}
+
+.cta-text {
+    font-size: 3rem;
+    padding: 0 0 8px;
+}
+
+/* Footer */
+
+#footer {
+    padding: 7% 0 5%;
+}
+
+.footer-link {
+    color: rgb(27, 23, 23);
+    padding: 1rem 12px 2rem;
+}
+
+.license {
+    padding: 1.5rem 2rem;
+}
