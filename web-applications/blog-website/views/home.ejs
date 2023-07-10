@@ -2,5 +2,14 @@
 
 <h1>Home</h1>
 <p><%= homeContent %></p>
+<% console.log(postList); %>
+
+<% postList.forEach(function(post){ %>
+    <% var postHeading = String(post.Title); %>
+    <% var postContent = String(post.Body); %>
+    <h1><%= postHeading %></h1>
+    <p><%= postContent %></p>
+<% }); %>
+
 
 <%- include('partials/footer.ejs') %>
