@@ -5,8 +5,8 @@
 <% console.log(postList); %>
 
 <% postList.forEach(function(post){ %>
-    <% var postHeading = String(post.Title); %>
-    <% var postContent = String(post.Body); %>
+    <% const postHeading = String(post.Title); %>
+    <% const postContent = String(post.Body); %>
     <h1><%= postHeading %></h1>
     <p><%= postContent %></p>
 <% }); %>
