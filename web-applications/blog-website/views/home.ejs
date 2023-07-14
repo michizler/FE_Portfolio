@@ -5,8 +5,10 @@
 <% console.log(postList); %>
 
 <% postList.forEach(function(post){ %>
-    <% const postHeading = String(post.Title); %>
-    <% const postContent = String(post.Body); %>
+    <% const maxLength = 100; %>
+    <% const postHeading = post.Title; %>
+    <% const postContent = post.Body.length>maxLength ? post.Body.substring(0,100) + "..." : post.Body; %>
+     
     <h1><%= postHeading %></h1>
     <p><%= postContent %></p>
 <% }); %>
