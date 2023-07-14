@@ -35,6 +35,23 @@ app.get("/compose", function (req, res) {
   res.render("compose");
 });
 
+app.get("/posts/:postName", function (req, res) {
+  // Another way of implementing the dynamic routing
+  // let found = posts.find(function (post, index) {
+  //   if (post.Title === req.params.postName){
+  //     console.log("Match Found!");
+  //   }
+  // });
+  
+  let requestedTitle = req.params.postName;
+  posts.forEach(post => {
+    if (post.Title === requestedTitle) {
+      console.log("Match Found!");
+    }
+  });
+
+  });
+
 
 app.post("/compose", function (req, res) {
   const newPost = {
