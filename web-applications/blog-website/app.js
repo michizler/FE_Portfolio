@@ -12,6 +12,9 @@ const posts = [];
 
 const app = express();
 
+// To use lodash in ejs templates
+app.locals._ = _;
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));

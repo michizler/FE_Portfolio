@@ -10,7 +10,7 @@
     <% const postContent = post.Body.length>maxLength ? post.Body.substring(0,100) + "..." : post.Body; %>
      
     <h1><%= postHeading %></h1>
-    <p><%= postContent %></p>
+    <p><%= postContent %> <a href="/posts/<%= postHeading %>">Read More</a></p>
 <% }); %>
 
 
