@@ -11,6 +11,7 @@ This repository holds the various frontend personal projects I've carried out Fe
   - [Drum Kit](#drum-kit)
   - [News Homepage](#news-homepage)
   - [Simon Game Challenge](#simon-game-challenge)
+  - [RTLS Web App](#rtls_webapp)
 - [Author](#author)
 
 
@@ -51,6 +52,12 @@ This repository holds the various frontend personal projects I've carried out Fe
 
 - Solution URL: [Solution Repo](https://www.github.com/michizler/Simon_Game_Challenge)
 - Live Site URL: [Live page](https://michizler.github.io/Simon_Game_Challenge/)
+
+### RTLS Web App
+
+#### Links
+
+- Solution URL: [Solution Repo](https://github.com/michizler/FE_Portfolio/tree/master/rtls_webapp)
 
 
 ## Author
