@@ -11,7 +11,7 @@ This repository holds the various frontend personal projects I've carried out Fe
   - [Drum Kit](#drum-kit)
   - [News Homepage](#news-homepage)
   - [Simon Game Challenge](#simon-game-challenge)
-  - [RTLS Web App](#rtls_webapp)
+  - [RTLS Web App](#rtls-webapp)
 - [Author](#author)
 
 
