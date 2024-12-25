@@ -1,0 +1,62 @@
+body {
+    background-color: hsl(234, 29%, 20%);
+    margin: 15% 20%;
+}
+
+
+.body-div {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 20px;  
+}
+
+.bigtext{
+    color: hsl(234, 29%, 20%);
+}
+
+.content{
+    margin-left: 5%;
+    padding-top: 4rem;
+}
+
+.list{
+    margin-left: 10%;
+    padding-top: 20px;
+}
+
+.list-text{
+    margin-bottom: 0;
+    padding-left: 20px;
+    padding-bottom: 10px;
+
+}
+
+.list-img{
+    padding-bottom: 10px;
+}
+
+.form{
+    margin-left: 5%;
+    padding-top: 1.5rem;
+}
+
+.form-input{
+    padding-bottom: 1rem;
+}
+
+.btn-dark{
+    background-color: hsl(234, 29%, 20%);
+}
+
+input[type=submit] {
+    width: 20em;
+}
+
+input[type=text] {
+    width: 20em;  
+    height: 3em;
+    padding-left: 1rem;
+}
+
+.image{
+    padding: 1.5rem 0rem 1.5rem 4rem;
+}
