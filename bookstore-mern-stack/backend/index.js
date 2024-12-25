@@ -1,7 +1,8 @@
-import express from "express";
+import express, { request } from "express";
 import { PORT, mongoDBurl } from "./config.js";
 import mongoose from "mongoose";
-import { Book } from "./bookModel.js";
+// import { Book } from "./bookModel.js";
+import router from "./routes/booksRoute.js";
 
 const app = express();
 
@@ -12,34 +13,7 @@ app.get("/", (request, response)=>{
     return response.status(234).send("Welcome to this MERN Stack App");
 });
 
-app.post("/books", async (request, response)=>{
-    try {
-        if (
-            !request.body.title ||
-            !request.body.author ||
-            !request.body.publishYear
-        ){
-            return response.status(400).send({
-                message: "Fill all required fields: title, author, publishYear"
-            });
-        }
-
-        // New book object with content following bookSchema
-        const newBook = {
-            title: request.body.title,
-            author: request.body.author,
-            publishYear: request.body.publishYear
-        };
-
-        // Create a new book record with Book model from bookModel.js
-        const book = await Book.create(newBook);
-
-        // send book object via http method
-        return response.status(201).send(book);
-    } catch (error) {
-        console.log(error);
-    }
-})
+app.use("/books", router);
 
 mongoose
 .connect(mongoDBurl)
