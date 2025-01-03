@@ -49,31 +49,31 @@ const Header = () => {
           <div className="flex flex-col md:flex-row">
             <a
               href="#"
-              className="p-4 text-center text-white hover:bg-zinc-700 md:text-zinc-600 md:hover:bg-transparent"
+              className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
             >
               Home
             </a>
             <a
               href="#"
-              className="p-4 text-center text-white hover:bg-zinc-700 md:text-zinc-600 md:hover:bg-transparent"
+              className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
             >
               Shop
             </a>
             <a
               href="#"
-              className="p-4 text-center text-white hover:bg-zinc-700 md:text-zinc-600 md:hover:bg-transparent"
+              className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
             >
               Blog
             </a>
             <a
               href="#"
-              className="p-4 text-center text-white hover:bg-zinc-700 md:text-zinc-600 md:hover:bg-transparent"
+              className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
             >
               About Us
             </a>
             <a
               href="#"
-              className="p-4 text-center text-white hover:bg-zinc-700 md:text-zinc-600 md:hover:bg-transparent"
+              className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
             >
               Contact Us
             </a>
