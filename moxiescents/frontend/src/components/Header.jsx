@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../src/assets/moxie_logo.jpg";
+import logo from "../assets/moxie_logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
