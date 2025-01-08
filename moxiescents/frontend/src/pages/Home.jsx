@@ -1,7 +1,12 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import BestSellers from "../components/BestSellers";
+import Testimonials from "../components/Testimonials";
+import heroImage from "../assets/hero-img.jpg";
+
 
 const Home = () => {
+
   return (
     <div>
       <Header />
@@ -10,8 +15,7 @@ const Home = () => {
           <div
             className="relative flex items-center justify-center h-screen bg-cover bg-center"
             style={{
-              backgroundImage:
-                "url('https://t4.ftcdn.net/jpg/08/45/58/95/360_F_845589510_QmbsMXwCXhQG2jrEHLrhIzQqdo1EeFe3.jpg')",
+              backgroundImage: `url(${heroImage})`,
             }}
           >
             {/* Overlay for better text readability */}
@@ -23,7 +27,7 @@ const Home = () => {
                 Welcome to MoxieScents
               </h1>
               <p className="mt-4 text-lg md:text-xl italic font-medium">
-                When other scents speak, yours should {" "}
+                When other scents speak, yours should{" "}
                 <span className="underline text-2xl">brag</span>
               </p>
               <button className="mt-6 px-6 py-3 bg-clay text-white font-semibold text-sm uppercase rounded hover:bg-opacity-80 transition">
@@ -110,15 +114,48 @@ const Home = () => {
               💡
             </div>
             <p className="text-lg md:text-xl italic font-verdana">
-              &quot;What started as a small passion project has grown into a thriving
-              business. We began with a dream to create premium scents that
-              speak louder than words. Today, we’re proud to have touched
+              &quot;What started as a small passion project has grown into a
+              thriving business. We began with a dream to create premium scents
+              that speak louder than words. Today, we’re proud to have touched
               countless lives with our products. Thank you for being part of our
               journey!&quot;
             </p>
           </div>
         </div>
-        
+
+        <BestSellers />
+
+        <div className="bg-punga text-white py-12 px-6 md:px-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 tracking-wide">
+            Latest News & Blogs
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Blog Post 1 */}
+            <div className="p-6 bg-clay rounded-lg shadow-lg">
+              <img
+                src="/path-to-blog-image1.jpg"
+                alt="Blog Post 1"
+                className="w-full h-40 object-cover rounded mb-4"
+              />
+              <h3 className="text-xl font-semibold mb-2">
+                How to Choose the Right Scent
+              </h3>
+              <p className="text-sm md:text-base font-medium mb-4">
+                Discover tips and tricks to find the perfect scent for every
+                occasion.
+              </p>
+              <a
+                href="/path-to-blog-1"
+                className="text-white underline hover:text-gray-300"
+              >
+                Read More
+              </a>
+            </div>
+            {/* Repeat similar blocks for other blog posts */}
+          </div>
+        </div>
+
+        <Testimonials />
       </div>
       <Footer />
     </div>
