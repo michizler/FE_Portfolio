@@ -16,6 +16,15 @@ export default {
       fontFamily: {
         verdana: ['Verdana', 'Geneva', 'sans-serif'],
       },
+      animation: {
+        enlarge: 'enlarge 3s infinite', // Define the custom animation
+      },
+      keyframes: {
+        enlarge: {
+          '0%, 100%': { transform: 'scale(1)' }, // Normal size at start and end
+          '50%': { transform: 'scale(1.5)' },   // Enlarged size at mid-point
+        },
+      },
     },
   },
   plugins: [],
