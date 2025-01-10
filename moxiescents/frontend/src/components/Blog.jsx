@@ -12,7 +12,10 @@ const Blog = () => (
       modules={[Navigation, Pagination]} // Explicitly pass required modules
       spaceBetween={20}
       slidesPerView={1}
-      navigation // Enable navigation
+      navigation={{
+        nextEl: ".swiper-button-next", // Use custom classes
+        prevEl: ".swiper-button-prev",
+      }}
       pagination={{ clickable: true }} // Enable pagination
       breakpoints={{
         640: { slidesPerView: 1 },
@@ -90,6 +93,9 @@ const Blog = () => (
           </a>
         </div>
       </SwiperSlide>
+
+      <div className="swiper-button-prev text-punga hover:text-bush"></div>
+      <div className="swiper-button-next text-punga hover:text-bush"></div>
     </Swiper>
   </div>
 );

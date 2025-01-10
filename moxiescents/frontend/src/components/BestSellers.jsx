@@ -12,7 +12,10 @@ const BestSellers = () => (
       modules={[Navigation, Pagination]} // Pass required modules
       spaceBetween={20}
       slidesPerView={1}
-      navigation={true} // Enable default navigation
+      navigation={{
+        nextEl: ".swiper-button-next", // Use custom classes
+        prevEl: ".swiper-button-prev",
+      }}
       pagination={{ clickable: true }} // Enable pagination
       breakpoints={{
         640: { slidesPerView: 1 },
@@ -72,6 +75,9 @@ const BestSellers = () => (
           </button>
         </div>
       </SwiperSlide>
+
+      <div className="swiper-button-prev text-punga hover:text-punga"></div>
+      <div className="swiper-button-next text-punga hover:text-punga"></div>
     </Swiper>
   </div>
 );
