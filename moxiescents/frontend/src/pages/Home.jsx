@@ -6,6 +6,7 @@ import Testimonials from "../components/Testimonials";
 import Impact from "../components/Impact";
 import Value from "../components/Value";
 import Hero from "../components/Hero";
+import Newsletter from "../components/Newsletter";
 
 const Home = () => {
   return (
@@ -13,16 +14,12 @@ const Home = () => {
       <Header />
       <div>
         <Hero />
-
         <Value />
-
         <Impact />
-
         <BestSellers />
-
         <Blog />
-
         <Testimonials />
+        <Newsletter />
       </div>
       <Footer />
     </div>
