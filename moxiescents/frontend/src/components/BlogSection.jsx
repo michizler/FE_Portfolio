@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules"; // Import required modules
 import "swiper/swiper-bundle.css"; // Import Swiper styles
 
-const Blog = () => (
+const BlogSection = () => (
   <div className="bg-punga text-white py-12 px-6 md:px-16">
     <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 tracking-wide">
       Latest News & Blogs
@@ -100,4 +100,4 @@ const Blog = () => (
   </div>
 );
 
-export default Blog;
+export default BlogSection;

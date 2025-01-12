@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BestSellers from "../components/BestSellers";
-import Blog from "../components/Blog";
+import BlogSection from "../components/BlogSection";
 import Testimonials from "../components/Testimonials";
 import Impact from "../components/Impact";
 import Value from "../components/Value";
@@ -17,7 +17,7 @@ const Home = () => {
         <Value />
         <Impact />
         <BestSellers />
-        <Blog />
+        <BlogSection />
         <Testimonials />
         <Newsletter />
       </div>

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import logo from "../assets/moxie_logo.jpg";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -48,31 +50,31 @@ const Header = () => {
         >
           <div className="flex flex-col md:flex-row">
             <a
-              href="#"
+              onClick={() => navigate("/")}
               className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
             >
               Home
             </a>
             <a
-              href="#"
+              onClick={() => navigate("/shop")}
               className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
             >
               Shop
             </a>
             <a
-              href="#"
+              onClick={() => navigate("/blog")}
               className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
             >
               Blog
             </a>
             <a
-              href="#"
+              onClick={() => navigate("/about")}
               className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
             >
               About Us
             </a>
             <a
-              href="#"
+              onClick={() => navigate("/contact")}
               className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
             >
               Contact Us
