@@ -1,4 +1,4 @@
-import heroImage from "../assets/hero-img.jpg";
+import heroImage from "../../assets/hero-img.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {

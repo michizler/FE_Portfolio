@@ -1,10 +1,19 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/moxie_logo.jpg";
-import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const getLinkClasses = (path) => {
+    return `p-4 text-center md:text-zinc-600 md:hover:text-driftwood ${
+      location.pathname === path
+        ? "text-driftwood font-bold"
+        : "text-gray-600 hover:text-driftwood"
+    }`;
+  };
 
   return (
     <div>
@@ -44,38 +53,53 @@ const Header = () => {
 
         {/* Navigation Links */}
         <div
-          className={`absolute top-16 left-0 w-full bg-bush md:relative md:top-0 md:left-0 md:flex md:w-auto md:bg-transparent ${
+          className={`absolute top-16 left-0 w-full bg-bush md:relative md:top-0 md:left-0 md:flex md:w-auto md:bg-transparent transition-transform duration-300 ${
             isMenuOpen ? "block" : "hidden"
           }`}
         >
           <div className="flex flex-col md:flex-row">
             <a
-              onClick={() => navigate("/")}
-              className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
+              onClick={() => {
+                setIsMenuOpen(false);
+                navigate("/");
+              }}
+              className={getLinkClasses("/")}
             >
               Home
             </a>
             <a
-              onClick={() => navigate("/shop")}
-              className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
+              onClick={() => {
+                setIsMenuOpen(false);
+                navigate("/shop");
+              }}
+              className={getLinkClasses("/shop")}
             >
               Shop
             </a>
             <a
-              onClick={() => navigate("/blog")}
-              className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
+              onClick={() => {
+                setIsMenuOpen(false);
+                navigate("/blog");
+              }}
+              className={getLinkClasses("/blog")}
             >
               Blog
             </a>
             <a
-              onClick={() => navigate("/about")}
-              className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
+              onClick={() => {
+                setIsMenuOpen(false);
+                navigate("/about");
+              }}
+              className={getLinkClasses("/about")}
             >
               About Us
             </a>
             <a
-              onClick={() => navigate("/contact")}
-              className="p-4 text-center text-white hover:bg-driftwood md:text-zinc-600 md:hover:bg-driftwood"
+              onClick={() => {
+                setIsMenuOpen(false);
+                navigate("/contact");
+              }}
+              className={getLinkClasses("/contact")}
             >
               Contact Us
             </a>
