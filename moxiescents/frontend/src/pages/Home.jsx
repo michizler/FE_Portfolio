@@ -1,12 +1,12 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import BestSellers from "../components/BestSellers";
-import BlogSection from "../components/BlogSection";
-import Testimonials from "../components/Testimonials";
-import Impact from "../components/Impact";
-import Value from "../components/Value";
-import Hero from "../components/Hero";
-import Newsletter from "../components/Newsletter";
+import BestSellers from "../components/Home/BestSellers";
+import BlogSection from "../components/Home/BlogSection";
+import Testimonials from "../components/Home/Testimonials";
+import Impact from "../components/Home/Impact";
+import Value from "../components/Home/Value";
+import Hero from "../components/Home/Hero";
+import Newsletter from "../components/Home/Newsletter";
 
 const Home = () => {
   return (

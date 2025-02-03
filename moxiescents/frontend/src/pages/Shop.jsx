@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import FilterSidebar from "../components/FilterSidebar";
-import ProductCard from "../components/ProductCard";
-import Pagination from "../components/Pagination";
+import FilterSidebar from "../components/Shop/FilterSidebar";
+import ProductCard from "../components/Shop/ProductCard";
+import Pagination from "../components/Shop/Pagination";
 
 const allProducts = [
   { id: 1, name: "Youthful Glow Anti-Aging Serum", price: 55.0, inStock: true, image: "path/to/product1.jpg", rating: 4.5 },

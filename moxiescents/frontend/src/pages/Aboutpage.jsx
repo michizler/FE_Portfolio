@@ -4,7 +4,7 @@ import Features from "../components/About/Features";
 import Mission from "../components/About/Mission";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Testimonials from "../components/Testimonials";
+import Testimonials from "../components/Home/Testimonials";
 
 const Aboutpage = () => {
   return (
