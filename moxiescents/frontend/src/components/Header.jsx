@@ -53,7 +53,7 @@ const Header = () => {
 
         {/* Navigation Links */}
         <div
-          className={`absolute top-16 left-0 w-full bg-bush md:relative md:top-0 md:left-0 md:flex md:w-auto md:bg-transparent transition-transform duration-300 ${
+          className={`absolute top-16 left-0 w-full bg-bush z-50 md:relative md:top-0 md:left-0 md:flex md:w-auto md:bg-transparent transition-transform duration-300 ${
             isMenuOpen ? "block" : "hidden"
           }`}
         >
