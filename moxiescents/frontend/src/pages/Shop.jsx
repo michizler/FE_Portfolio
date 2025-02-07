@@ -1,24 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FilterSidebar from "../components/Shop/FilterSidebar";
 import ProductCard from "../components/Shop/ProductCard";
 import Pagination from "../components/Shop/Pagination";
 
-const allProducts = [
-  { id: 1, name: "Youthful Glow Anti-Aging Serum", price: 55.0, inStock: true, image: "path/to/product1.jpg", rating: 4.5 },
-  { id: 2, name: "Fresh Fruit Facial Cleanser", price: 39.0, inStock: true, image: "path/to/product2.jpg", rating: 4.8 },
-  { id: 3, name: "Radiance Revive Combo Serums", price: 60.0, inStock: false, image: "path/to/product3.jpg", rating: 4.3 },
-  // Add more products
-];
-
 const Shop = () => {
-  const [filteredProducts, setFilteredProducts] = useState(allProducts); // State for filtered products
+  const [allProducts, setAllProducts] = useState([]); // Stores fetched products
+  const [filteredProducts, setFilteredProducts] = useState([]); // Stores filtered products
   const [isFilterOpen, setIsFilterOpen] = useState(false); // For mobile filter visibility
+  const [loading, setLoading] = useState(true); // Loading state
 
-  // Function to handle filter changes
+  // ✅ Fetch products from MongoDB when component loads
+  useEffect(() => {
+    fetch("http://localhost:5000/api/products") // Replace with your backend API URL
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Fetched Data:", data); // Debugging to check response structure
+        if (data.data && Array.isArray(data.data)) {
+          setAllProducts(data.data); // Fix: Access the `products` array inside the object
+          setFilteredProducts(data.data);
+        } else if (Array.isArray(data)) {
+          setAllProducts(data); // If it's already an array
+          setFilteredProducts(data);
+        } else {
+          console.error("Unexpected data format:", data);
+        }
+      })
+      .catch((err) => console.error("Error fetching products:", err))
+      .finally(() => setLoading(false)); // Stop loading
+  }, []);
+
+  // ✅ Apply filters based on user selection
   const applyFilters = (filters) => {
     let products = [...allProducts];
+
     if (filters.inStock) {
       products = products.filter((product) => product.inStock);
     }
@@ -26,12 +42,13 @@ const Shop = () => {
       const [min, max] = filters.priceRange;
       products = products.filter((product) => product.price >= min && product.price <= max);
     }
+
     setFilteredProducts(products);
   };
 
-  // Function to reset all filters
+  // ✅ Reset filters to show all products
   const resetFilters = () => {
-    setFilteredProducts(allProducts); // Reset to display all products
+    setFilteredProducts(allProducts);
   };
 
   return (
@@ -66,17 +83,19 @@ const Shop = () => {
 
         {/* Product Grid */}
         <main className="w-full lg:w-3/4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))
-            ) : (
-              <p className="text-center text-gray-500 col-span-full">
-                No products found matching the criteria.
-              </p>
-            )}
-          </div>
+          {loading ? (
+            <p className="text-center text-gray-500">Loading products...</p>
+          ) : filteredProducts.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {filteredProducts.map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-gray-500 col-span-full">
+              No products found.
+            </p>
+          )}
 
           {/* Pagination */}
           <div className="mt-8">
