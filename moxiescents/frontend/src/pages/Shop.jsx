@@ -13,7 +13,7 @@ const Shop = () => {
 
   // ✅ Fetch products from MongoDB when component loads
   useEffect(() => {
-    fetch("http://localhost:5000/api/products") // Replace with your backend API URL
+    fetch("http://localhost:5000/api/products")
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched Data:", data); // Debugging to check response structure
@@ -31,7 +31,7 @@ const Shop = () => {
       .finally(() => setLoading(false)); // Stop loading
   }, []);
 
-  // ✅ Apply filters based on user selection
+  // Apply filters based on user selection
   const applyFilters = (filters) => {
     let products = [...allProducts];
 
@@ -46,7 +46,7 @@ const Shop = () => {
     setFilteredProducts(products);
   };
 
-  // ✅ Reset filters to show all products
+  // Reset filters to show all products
   const resetFilters = () => {
     setFilteredProducts(allProducts);
   };
