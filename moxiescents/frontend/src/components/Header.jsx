@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { CartContext } from "../context/CartContext"; // ✅ Import Cart Context
 import logo from "../assets/moxie_logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { cart } = useContext(CartContext); // ✅ Access cart data
 
   const getLinkClasses = (path) => {
     return `p-4 text-center md:text-zinc-600 md:hover:text-driftwood ${
@@ -14,6 +16,9 @@ const Header = () => {
         : "text-gray-600 hover:text-driftwood"
     }`;
   };
+
+  // Calculate total items in cart
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <div>
@@ -30,7 +35,7 @@ const Header = () => {
           </h1>
         </div>
 
-        {/* Hamburger Button */}
+        {/* Hamburger Button for Mobile */}
         <button
           className="block md:hidden p-2 text-zinc-600"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -57,7 +62,7 @@ const Header = () => {
             isMenuOpen ? "block" : "hidden"
           }`}
         >
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row items-center md:space-x-6">
             <a
               onClick={() => {
                 setIsMenuOpen(false);
@@ -103,6 +108,19 @@ const Header = () => {
             >
               Contact Us
             </a>
+
+            {/* Cart Icon with Item Count - FIXED FOR SMALL SCREENS */}
+            <div
+              className="relative flex items-center justify-center mt-2 md:mt-0"
+              onClick={() => navigate("/cart")}
+            >
+              <span className="text-2xl">🛒</span>
+              {cartItemCount > 0 && (
+                <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartItemCount}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>
