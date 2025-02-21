@@ -35,10 +35,18 @@ router.post("/", async (request, response) => {
     }
   });
   
-  // Route for Get All Products From Database
+  // Route for Get Products From Database
   router.get("/", async (request, response) => {
     try {
-      const products = await Product.find({});
+      const { bestSellers } = request.query;
+      let query = {};
+  
+      // If bestSellers is true, filter products with high ratings
+      if (bestSellers === "true") {
+        query.rating = { $gte: 4.0 };
+      }
+  
+      const products = await Product.find(query).sort({ rating: -1 }); // Sort by highest rating
   
       return response.status(200).json({
         count: products.length,

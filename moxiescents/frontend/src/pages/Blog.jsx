@@ -19,8 +19,12 @@ const Blog = () => {
         return res.json();
       })
       .then((data) => {
-        console.log("Fetched Blogs:", data);
-        setBlogs(data);
+        // console.log("Fetched Blogs:", data);
+        if (Array.isArray(data.data)) {
+          setBlogs(data.data);
+        } else {
+          console.error("Unexpected data format:", data);
+        }
       })
       .catch((err) => console.error("Error fetching blogs:", err))
       .finally(() => setLoading(false));
@@ -56,7 +60,11 @@ const Blog = () => {
             )}
           </div>
         )}
-        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </div>
       <Footer />
     </div>

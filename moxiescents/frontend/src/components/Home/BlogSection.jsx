@@ -1,103 +1,76 @@
+import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules"; // Import required modules
-import "swiper/swiper-bundle.css"; // Import Swiper styles
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/swiper-bundle.css";
+import BlogCard from "../Blog/BlogCard";
 
-const BlogSection = () => (
-  <div className="bg-punga text-white py-12 px-6 md:px-16">
-    <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 tracking-wide">
-      Latest News & Blogs
-    </h2>
-    {/* Swiper with required modules */}
-    <Swiper
-      modules={[Navigation, Pagination]} // Explicitly pass required modules
-      spaceBetween={20}
-      slidesPerView={1}
-      navigation={{
-        nextEl: ".swiper-button-next", // Use custom classes
-        prevEl: ".swiper-button-prev",
-      }}
-      pagination={{ clickable: true }} // Enable pagination
-      breakpoints={{
-        640: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      }}
-    >
-      {/* Blog Post 1 */}
-      <SwiperSlide>
-        <div className="p-6 bg-clay rounded-lg shadow-lg">
-          <img
-            src="/path-to-blog-image1.jpg"
-            alt="Blog Post 1"
-            className="w-full h-40 object-cover rounded mb-4"
-          />
-          <h3 className="text-xl font-semibold mb-2">
-            How to Choose the Right Scent
-          </h3>
-          <p className="text-sm md:text-base font-medium mb-4">
-            Discover tips and tricks to find the perfect scent for every
-            occasion.
-          </p>
-          <a
-            href="/path-to-blog-1"
-            className="text-white underline hover:text-gray-300"
-          >
-            Read More
-          </a>
-        </div>
-      </SwiperSlide>
+const BlogSection = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-      {/* Repeat SwiperSlide for Other Blog Posts */}
-      <SwiperSlide>
-        <div className="p-6 bg-clay rounded-lg shadow-lg">
-          <img
-            src="/path-to-blog-image2.jpg"
-            alt="Blog Post 2"
-            className="w-full h-40 object-cover rounded mb-4"
-          />
-          <h3 className="text-xl font-semibold mb-2">
-            The Art of Relaxation with Candles
-          </h3>
-          <p className="text-sm md:text-base font-medium mb-4">
-            Learn how candles can transform your space and bring peace to your
-            home.
-          </p>
-          <a
-            href="/path-to-blog-2"
-            className="text-white underline hover:text-gray-300"
-          >
-            Read More
-          </a>
-        </div>
-      </SwiperSlide>
+  useEffect(() => {
+    fetch("http://localhost:5000/api/blogs?sortBy=publishDate&order=desc")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data.data)) {
+          setBlogs(data.data);
+          // console.log(data.data);
+        } else {
+          console.error("Unexpected data format:", data);
+          setBlogs([]); // Prevents undefined errors
+        }
+      })
+      .catch((err) => console.error("Error fetching blogs:", err))
+      .finally(() => setLoading(false));
+  }, []);
 
-      <SwiperSlide>
-        <div className="p-6 bg-clay rounded-lg shadow-lg">
-          <img
-            src="/path-to-blog-image3.jpg"
-            alt="Blog Post 3"
-            className="w-full h-40 object-cover rounded mb-4"
-          />
-          <h3 className="text-xl font-semibold mb-2">
-            Top 10 Candle Scents for Fall
-          </h3>
-          <p className="text-sm md:text-base font-medium mb-4">
-            Explore the must-have candle scents for the coziest season of the
-            year.
-          </p>
-          <a
-            href="/path-to-blog-3"
-            className="text-white underline hover:text-gray-300"
-          >
-            Read More
-          </a>
-        </div>
-      </SwiperSlide>
+  return (
+    <div className="bg-white text-punga py-12 px-6 md:px-16">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 tracking-wide">
+        Latest News & Blogs
+      </h2>
 
-      <div className="swiper-button-prev text-punga hover:text-bush"></div>
-      <div className="swiper-button-next text-punga hover:text-bush"></div>
-    </Swiper>
-  </div>
-);
+      {loading ? (
+        <p className="text-center text-gray-500">Loading blogs...</p>
+      ) : blogs.length > 0 ? (
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={20}
+          slidesPerView={1}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {blogs.map((blog) => (
+            <SwiperSlide key={blog._id}>
+              <BlogCard
+                title={blog.title || "Untitled Blog"}
+                image={blog.image || "/default-image.jpg"}
+                description={blog.description || "No description available."}
+                date={
+                  blog.publishDate
+                    ? new Date(blog.publishDate).toDateString()
+                    : "Unknown Date"
+                }
+              />
+            </SwiperSlide>
+          ))}
+
+          <div className="swiper-button-prev text-punga hover:text-punga"></div>
+          <div className="swiper-button-next text-punga hover:text-punga"></div>
+        </Swiper>
+      ) : (
+        <p className="text-center text-gray-500">No recent blogs available.</p>
+      )}
+    </div>
+  );
+};
 
 export default BlogSection;

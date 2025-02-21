@@ -9,12 +9,10 @@ router.post("/", async (req, res) => {
     const { title, publishDate, description, image } = req.body;
 
     if (!title || !publishDate || !description || !image) {
-      return res
-        .status(400)
-        .json({
-          message:
-            "All fields are required (title, publishDate, description, image)",
-        });
+      return res.status(400).json({
+        message:
+          "All fields are required (title, publishDate, description, image)",
+      });
     }
 
     const newBlog = await BlogPost.create({
@@ -33,8 +31,21 @@ router.post("/", async (req, res) => {
 // Get all blog posts
 router.get("/", async (req, res) => {
   try {
-    const blogs = await BlogPost.find({});
-    return res.status(200).json(blogs);
+    let query = {};
+    let sort = {};
+
+    // Check if sorting parameters are provided
+    if (req.query.sortBy && req.query.order) {
+      const { sortBy, order } = req.query;
+      const sortOrder = order === "desc" ? -1 : 1;
+      sort[sortBy] = sortOrder;
+    }
+
+    // Fetch and sort blogs
+    const blogs = await BlogPost.find(query).sort(sort);
+
+    // For Frontend alignment
+    return res.status(200).json({ count: blogs.length, data: blogs });
   } catch (error) {
     console.error("GET /api/blogs Error:", error);
     res.status(500).json({ message: "Server error", error: error.message });
@@ -61,12 +72,10 @@ router.put("/:id", async (req, res) => {
     const { title, publishDate, description, image } = req.body;
 
     if (!title || !publishDate || !description || !image) {
-      return res
-        .status(400)
-        .json({
-          message:
-            "All fields are required (title, publishDate, description, image)",
-        });
+      return res.status(400).json({
+        message:
+          "All fields are required (title, publishDate, description, image)",
+      });
     }
 
     const updatedBlog = await BlogPost.findByIdAndUpdate(

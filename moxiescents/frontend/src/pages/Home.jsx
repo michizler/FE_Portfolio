@@ -15,8 +15,8 @@ const Home = () => {
       <div>
         <Hero />
         <Value />
-        <Impact />
         <BestSellers />
+        <Impact />
         <BlogSection />
         <Testimonials />
         <Newsletter />
