@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Files for secrets
-./backend/config.js
+../backend/config.js
