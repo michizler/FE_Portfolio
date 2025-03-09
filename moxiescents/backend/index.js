@@ -1,5 +1,6 @@
 import express from "express";
-import { PORT, mongoDBURL } from "./config.js";
+import dotenv from "dotenv";
+// import { PORT, mongoDBURL } from "./config.js";
 import path from "path"; // Use ES module import
 import fs from "fs";
 import cors from "cors";
@@ -8,6 +9,9 @@ import productRoutes from "./routes/productRoutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
 
 const app = express();
+dotenv.config();
+const port = process.env.PORT || 5000;
+const mongoDBURL = process.env.MONGODBURL;
 
 app.use(cors());
 app.use(express.json());
@@ -43,8 +47,8 @@ mongoose
   .connect(mongoDBURL)
   .then(() => {
     console.log("App connected to database");
-    app.listen(PORT, () => {
-      console.log(`App is listening on port ${PORT}`);
+    app.listen(port, () => {
+      console.log(`App is listening on port ${port}`);
     });
   })
   .catch((error) => {
