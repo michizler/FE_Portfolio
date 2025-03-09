@@ -9,7 +9,7 @@ const BlogSection = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/blogs?sortBy=publishDate&order=desc")
+    fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/blogs?sortBy=publishDate&order=desc`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data.data)) {

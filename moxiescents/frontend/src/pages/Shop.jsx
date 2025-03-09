@@ -13,7 +13,7 @@ const Shop = () => {
 
   // ✅ Fetch products from MongoDB when component loads
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched Data:", data); // Debugging to check response structure

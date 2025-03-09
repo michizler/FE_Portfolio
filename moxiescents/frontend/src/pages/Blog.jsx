@@ -13,7 +13,7 @@ const Blog = () => {
 
   // Fetch blogs from API
   useEffect(() => {
-    fetch("http://localhost:5000/api/blogs")
+    fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/blogs`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();

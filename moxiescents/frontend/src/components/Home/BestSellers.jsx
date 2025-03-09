@@ -9,7 +9,7 @@ const BestSellers = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products?bestSellers=true") // API for best-seller filtering (productRoutes)
+    fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products?bestSellers=true`) // API for best-seller filtering (productRoutes)
       .then((res) => res.json())
       .then((data) => {
         if (data.data && Array.isArray(data.data)) {
