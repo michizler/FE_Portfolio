@@ -54,6 +54,15 @@ This repository holds the various frontend personal projects I've carried out Fe
 - Solution URL: [Solution Repo](https://www.github.com/michizler/Simon_Game_Challenge)
 - Live Site URL: [Live page](https://michizler.github.io/Simon_Game_Challenge/)
 
+### MoxieScents
+
+#### Links
+
+- Solution URL: [Solution Repo](https://github.com/michizler/FE_Portfolio/tree/master/moxiescents)
+
+- Live Site URL: [Live page](https://moxiescents.vercel.app)
+
+
 ### RTLS Web App
 
 #### Links
