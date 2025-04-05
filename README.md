@@ -12,6 +12,7 @@ This repository holds the various frontend personal projects I've carried out Fe
   - [News Homepage](#news-homepage)
   - [Simon Game Challenge](#simon-game-challenge)
   - [RTLS Web App](#rtls-webapp)
+  - [MoxieScents](#moxiescents)
 - [Author](#author)
 
 
